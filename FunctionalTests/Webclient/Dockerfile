@@ -4,6 +4,8 @@ RUN yum install -y wget
 
 RUN yum-config-manager --enable rhel-7-server-extras-rpms
 
+RUN yum install -y liberation-fonts
+
 # Install Chrome for Selenium
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
   yum install -y ./google-chrome-stable_current_*.rpm
