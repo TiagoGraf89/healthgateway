@@ -1,10 +1,10 @@
 FROM docker-registry.default.svc:5000/q6qfzk-tools/dotnet22-base:latest
 
-RUN yum install wget
+RUN yum install -y wget
 
 # Install Chrome for Selenium
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
-  yum install ./google-chrome-stable_current_*.rpm
+  yum install -y ./google-chrome-stable_current_*.rpm
 
 # Install chromedriver for Selenium
 RUN mkdir -p /opt && \
