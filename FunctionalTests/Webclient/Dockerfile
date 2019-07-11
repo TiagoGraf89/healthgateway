@@ -1,5 +1,7 @@
 FROM docker-registry.pathfinder.gov.bc.ca/q6qfzk-tools/dotnet22-base:latest
 
+RUN yum install wget -y
+
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
     yum -y install redhat-lsb libXScrnSaver && \
     yum -y localinstall google-chrome-stable_current_x86_64.rpm
