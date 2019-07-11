@@ -1,4 +1,4 @@
-FROM docker-registry.pathfinder.gov.bc.ca/q6qfzk-tools/dotnet22-base:latest
+FROM docker-registry.default.svc:5000/q6qfzk-tools/dotnet22-base:latest
 COPY . .
 RUN npm install
 
