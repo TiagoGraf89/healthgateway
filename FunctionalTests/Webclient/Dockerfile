@@ -1,4 +1,6 @@
-FROM node:10.16.0
+FROM docker-registry.default.svc:5000/q6qfzk-tools/dotnet22-base:latest
+
+RUN yum install npm -y
 COPY . .
 RUN npm install
 
