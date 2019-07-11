@@ -1,4 +1,4 @@
-FROM docker-registry.default.svc:5000/q6qfzk-tools/dotnet22-base:latest
+FROM node:10.16.0
 COPY . .
 RUN npm install
 
