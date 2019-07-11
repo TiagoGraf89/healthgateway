@@ -1,6 +1,6 @@
 FROM docker-registry.default.svc:5000/q6qfzk-tools/dotnet22-base:latest
 
-RUN yum install npm -y
+RUN curl -L https://npmjs.org/install.sh | sh
 COPY . .
 RUN npm install
 
