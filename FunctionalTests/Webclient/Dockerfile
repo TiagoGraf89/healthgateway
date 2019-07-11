@@ -1,22 +1,28 @@
+#FROM selenium/node-chrome:3.5.3-boron
 FROM docker-registry.pathfinder.gov.bc.ca/q6qfzk-tools/dotnet22-base:latest
 
 RUN yum install wget -y
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
-    yum -y install redhat-lsb libXScrnSaver && \
-    yum -y localinstall google-chrome-stable_current_x86_64.rpm
-
 # Install Chrome for Selenium
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
-  yum install -y ./google-chrome-stable_current_*.rpm
+#RUN echo "google-chrome-stable_current_x86_64.rpm" && \
+#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
+#    yum -y install redhat-lsb libXScrnSaver && \
+#    yum -y localinstall google-chrome-stable_current_x86_64.rpm
+
+
+# Install ChromeDriver.
+#RUN wget -N https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -P ~/
+#    unzip ~/chromedriver_linux64.zip -d ~/
+#    rm ~/chromedriver_linux64.zip
+#    mv -f ~/chromedriver /usr/local/bin/chromedriver
+#    chown root:root /usr/local/bin/chromedriver
+#    chmod 0755 /usr/local/bin/chromedriver
 
 # Install chromedriver for Selenium
-RUN mkdir -p /opt && \
-  pushd /opt && \
-  echo "Downloading https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip" && \
-  curl -sL https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip -o /usr/local/bin/chromedriver && \
+RUN echo "Downloading 2.35/chromedriver_linux64.zip" && \
+  curl -sL https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -o /usr/local/bin/chromedriver && \
   chmod +x /usr/local/bin/chromedriver
 
-RUN npm install
+# RUN npm install
 
 CMD ["npm", "test"]
